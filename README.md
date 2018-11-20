@@ -61,3 +61,6 @@ En la actividad en la que queramos mandar acciones y mostrar popups tenemos que 
         
 El evento puede llamarse desde un href: <a href="javascript:BonnusSDK.trigger('Mom4');">Prueba Momento 2</a>
 o desde un evento de JS.
+
+Demo: https://bonnussdkwebdemo.azurewebsites.net/
+
