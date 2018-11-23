@@ -1,6 +1,17 @@
-# Bonnus SDK Web JQuery V1.1
+# Bonnus SDK Web JQuery V1.2
         
     
+
+Releases:
+- Beta - V1.2 - https://bonnuslib.azureedge.net/bonnus-sdk-web-v12.js
+        - Soporte Multi Modal.
+        - Bonnus reusables / no reusables
+        - Notificación on / off
+        - Funcion para verificar el estado del momento.
+
+- 16 nov 2018 - V1.1 - https://bonnuslib.azureedge.net/bonnus-sdk-web-v10.js
+
+
 Configuración del SDK de Bonnus para Web Basado en Jquery.
 
 - Requisitos:
@@ -61,6 +72,15 @@ En la actividad en la que queramos mandar acciones y mostrar popups tenemos que 
         
 El evento puede llamarse desde un href: <a href="javascript:BonnusSDK.trigger('Mom4');">Prueba Momento 2</a>
 o desde un evento de JS.
+
+- Verificar estado de momento.
+Es posible consultar el SDK para saber si un momento ya fue ejectudo o no.
+
+        BonnusSDK.isUsed('trigger'); : Boolean
+
+El resultado es un boolean.
+    
+
 
 Demo: https://bonnussdkwebdemo.azurewebsites.net/
 
