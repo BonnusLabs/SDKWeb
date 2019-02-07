@@ -1,8 +1,26 @@
-# Bonnus SDK Web JQuery V1.2
+# Bonnus SDK Web JQuery V1.6
         
     
 
 Releases:
+
+- V1.6 - https://bonnuslib.azureedge.net/bonnus-sdk-web-v16.js
+        - Fixes generales
+        - Update RSA 2048
+        - Ligas de soporte
+        - Fixes colores
+        - Compatibilidad IE 11
+        
+- V1.5 - https://bonnuslib.azureedge.net/bonnus-sdk-web-v15.js
+        - ID de Campaña estático
+        
+- V1.4 - https://bonnuslib.azureedge.net/bonnus-sdk-web-v14.js
+        - Integración de datos de segmentación de usuario
+        - Integración de encriptación RSA 1024
+        
+- V1.3 - https://bonnuslib.azureedge.net/bonnus-sdk-web-v13.js
+        - Funciones Callback
+
 - Beta - V1.2 - https://bonnuslib.azureedge.net/bonnus-sdk-web-v12.js
         - Soporte Multi Modal.
         - Bonnus reusables / no reusables
@@ -80,7 +98,40 @@ Es posible consultar el SDK para saber si un momento ya fue ejectudo o no.
 
 El resultado es un boolean.
     
+- Funciones Callback
+
+Es posible pedirle al SDK que ejecute alguna función despues de cierta acción, esta función es útil para poder llamar funciones de registro de actividad o redireccionamiento.
+Para establecer la función de callback es necesario agregar tanto la función como el momento donde se llama:
+
+        BonnusSDK.trigger('Mom2', FuncionCallback, 'momento');
+        
+  Los posibles momentos son:
+        - beforeOpen : Momento justo antes de abrir el modal.
+        - Opended : Momento justo al tarminar de abrir el modal
+        - beforeClose : Momento justo antes de cerrar el modal
+        - afterClose : Momento justo después de haber cerrado el modal
+        - onAlert: Momento en el que se abre la alerta
+        
+        
+- Datos de segmentación de usuarios
+        Es posible que el partner envíe a Bonnus datos de segmentación de usuario, de esta forma las campañas de regreso estarán más enfocadas al usuario, los datos de segmentación son opcionales y puedesn enviarse uno o todos. mientras mas datos mejor segmentación
+        
+    La segmentación de usuarios deberá de realizarse antes de la inicialización del SDK de esta forma:
+                BonnusSDK.setBirthDate("20/04/1980"); - Establece fecha de nacimiento, es posible aceptar solo mes y año o año.
+                BonnusSDK.setZipCode("14250"); - Establece el código postal del usuario
+                BonnusSDK.setGender("M"); - Establece Femenino o Masculino, solo acepta una letra M o F
+                BonnusSDK.setGeo("14.00004, -95.0154"); - Estable le posición del dispositivo del usuqario en formato (Lat,Long)
+
+        
+   Los datos de segmentación de usuario son enviados a la API de Bonnus con una encriptación adicional RSA 2048
 
 
+- Campaña ID.
+        Si se conoce los ids de campañas que esta asociado un momento, puede especificarse directamente la campaña que se desea, esta función es optima opara sitios donde se da a escoger uno u otros Bonnus.
+        Para enviar el id de campañas es necesario incluirlo en el trigger de esta forma:
+        
+        BonnusSDK.trigger('Momento', null, null,'CAMPAIGN_ID');
+        
+    Es necesario mencionar que si la campaña cambia o caduca debera de establecerse una nueva campaña o el trigger generará un error en consol.
 Demo: https://bonnussdkwebdemo.azurewebsites.net/
 
